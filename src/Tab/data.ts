@@ -6,14 +6,14 @@ export const tabText: string[] = ["home", "contact", "blog"];
 export const tabContent: Data[] = [
   {
     id: 1,
-    description: "home",
+    description: "home Page",
   },
   {
     id: 2,
-    description: "content",
+    description: "content Page",
   },
   {
     id: 3,
-    description: "blog",
+    description: "blog Page",
   },
 ];
