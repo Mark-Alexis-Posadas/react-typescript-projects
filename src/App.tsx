@@ -1,5 +1,11 @@
+import Accordion from "./Accordion/Accordion";
+
 const App = () => {
-  return <div>App</div>;
+  return (
+    <>
+      <Accordion />
+    </>
+  );
 };
 
 export default App;
