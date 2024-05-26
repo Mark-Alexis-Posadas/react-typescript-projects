@@ -1,12 +1,11 @@
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 interface AccordionProps {
   title: string;
   body: string;
-  index: number;
   id: number;
   isActive: boolean;
-  toggleAccordion: void;
+  toggleAccordion: (id: number) => void;
 }
 const AccordionItem = ({
   title,
@@ -22,9 +21,9 @@ const AccordionItem = ({
         onClick={() => toggleAccordion(id)}
       >
         <h2 className="font-bold text-green-600">{title}</h2>
-        {/* <span>
+        <span>
           <FontAwesomeIcon icon={isActive ? faMinus : faPlus} />
-        </span> */}
+        </span>
       </li>
       {isActive && <div>{body}</div>}
     </>

@@ -4,13 +4,15 @@ import { accordionData } from "./data";
 import AccordionItem from "./AccordionItem";
 
 const Accordion = () => {
-  const [activeAccordion, setActiveAccordion] = useState(accordionData[0].id);
+  const [activeAccordion, setActiveAccordion] = useState<number | null>(
+    accordionData[0].id
+  );
 
-  const toggleAccordion = (id) => {
+  const toggleAccordion = (id: number) => {
     setActiveAccordion(id === activeAccordion ? null : id);
   };
   return (
-    <ul>
+    <ul className="mt-10 max-w-[500px]">
       {accordionData.map((item) => {
         const isActive = item.id === activeAccordion;
 
@@ -20,8 +22,6 @@ const Accordion = () => {
             title={item.title}
             body={item.body}
             id={item.id}
-            activeAccordion={activeAccordion}
-            setActiveAccordion={setActiveAccordion}
             isActive={isActive}
             toggleAccordion={toggleAccordion}
           />
