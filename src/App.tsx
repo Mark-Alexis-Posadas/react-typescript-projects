@@ -1,12 +1,11 @@
-import Accordion from "./Accordion/Accordion";
-import Tab from "./Tab/Tab";
+import React from "react";
+import Tab from "./pages/Tab";
 
-const App = () => {
+const App: React.FC = () => {
   return (
-    <>
-      <Accordion />
+    <div>
       <Tab />
-    </>
+    </div>
   );
 };
 

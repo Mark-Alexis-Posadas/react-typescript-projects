@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import TabItem from "./TabItem";
+import TabItem from "../../components/TabItem";
 import { tabText, tabContent } from "./data";
-import TabContent from "./TabContent";
+import TabContent from "../../components/TabContent";
 const Tab: React.FC = () => {
   const [activeTab, setActiveTab] = useState<number>(0);
 
