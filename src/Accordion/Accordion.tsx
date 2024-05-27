@@ -1,9 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 import { accordionData } from "./data";
 import AccordionItem from "./AccordionItem";
 
-const Accordion = () => {
+const Accordion: React.FC = () => {
   const [activeAccordion, setActiveAccordion] = useState<number | null>(
     accordionData[0].id
   );

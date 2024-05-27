@@ -1,3 +1,4 @@
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 interface AccordionProps {
@@ -7,7 +8,7 @@ interface AccordionProps {
   isActive: boolean;
   toggleAccordion: (id: number) => void;
 }
-const AccordionItem = ({
+const AccordionItem: React.FC<AccordionProps> = ({
   title,
   body,
   id,

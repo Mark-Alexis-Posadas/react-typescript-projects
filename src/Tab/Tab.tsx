@@ -1,8 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import TabItem from "./TabItem";
 import { tabText, tabContent } from "./data";
 import TabContent from "./TabContent";
-const Tab = () => {
+const Tab: React.FC = () => {
   const [activeTab, setActiveTab] = useState<number>(0);
 
   const handleChangeTab = (index: number) => {

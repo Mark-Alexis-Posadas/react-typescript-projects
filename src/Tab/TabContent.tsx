@@ -1,9 +1,11 @@
+import React from "react";
+
 interface ContentProp {
   content: string;
   index: number;
   activeTab: number;
 }
-const TabContent = ({ content, index, activeTab }: ContentProp) => {
+const TabContent: React.FC<ContentProp> = ({ content, index, activeTab }) => {
   return (
     <div className={`${activeTab === index ? "block" : "hidden"} p-3`}>
       {content}
