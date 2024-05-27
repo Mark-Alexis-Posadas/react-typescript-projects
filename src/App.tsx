@@ -1,10 +1,10 @@
 import React from "react";
-import Counter from "./pages/Counter";
+import ColorPicker from "./pages/ColorPicker";
 
 const App: React.FC = () => {
   return (
     <div>
-      <Counter />
+      <ColorPicker />
     </div>
   );
 };
