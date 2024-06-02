@@ -1,10 +1,10 @@
 import React from "react";
-import ColorPicker from "./pages/ColorPicker";
+import Todo from "./pages/Todo";
 
 const App: React.FC = () => {
   return (
     <div>
-      <ColorPicker />
+      <Todo />
     </div>
   );
 };
