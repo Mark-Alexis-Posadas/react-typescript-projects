@@ -18,10 +18,10 @@ const AccordionItem: React.FC<AccordionProps> = ({
   return (
     <>
       <li
-        className="flex items-center justify-between cursor-pointer bg-slate-50 shadow-md p-2 rounded"
+        className="flex items-center justify-between cursor-pointer p-2 my-2 border-t-2 border-b-2 border-black"
         onClick={() => toggleAccordion(id)}
       >
-        <h2 className="font-bold text-green-600">{title}</h2>
+        <h2 className="font-bold text-black">{title}</h2>
         <span>
           <FontAwesomeIcon icon={isActive ? faMinus : faPlus} />
         </span>

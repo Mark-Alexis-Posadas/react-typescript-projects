@@ -1,11 +1,11 @@
 import React from "react";
-import Todo from "./pages/Todo";
+import Accordion from "./pages/Accordion";
 
 const App: React.FC = () => {
   return (
-    <div>
-      <Todo />
-    </div>
+    <>
+      <Accordion />
+    </>
   );
 };
 
