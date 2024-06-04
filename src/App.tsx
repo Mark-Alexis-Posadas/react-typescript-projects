@@ -1,10 +1,10 @@
 import React from "react";
-import Accordion from "./pages/Accordion";
+import Tab from "./pages/Tab";
 
 const App: React.FC = () => {
   return (
     <>
-      <Accordion />
+      <Tab />
     </>
   );
 };

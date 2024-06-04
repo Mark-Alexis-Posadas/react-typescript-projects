@@ -15,8 +15,8 @@ const TabItem: React.FC<ItemProp> = ({
   return (
     <li
       className={`${
-        activeTab === index ? "bg-green-500 text-white" : "bg-white text-black"
-      } p-2 rounded text-center cursor-pointer`}
+        activeTab === index && "bg-blue-700 rounded-full"
+      } text-white p-2  text-center cursor-pointer`}
       onClick={() => handleChangeTab(index)}
     >
       {item}

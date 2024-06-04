@@ -9,8 +9,8 @@ const Tab: React.FC = () => {
     setActiveTab(index);
   };
   return (
-    <>
-      <ul className="grid grid-cols-3 gap-3">
+    <div className="p-10">
+      <ul className="grid grid-cols-3  p-2 rounded-full bg-blue-600 w-[500px] m-auto">
         {tabText.map((item, index) => (
           <TabItem
             key={index}
@@ -29,7 +29,7 @@ const Tab: React.FC = () => {
           activeTab={activeTab}
         />
       ))}
-    </>
+    </div>
   );
 };
 
