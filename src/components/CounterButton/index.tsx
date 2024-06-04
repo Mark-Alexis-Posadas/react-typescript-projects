@@ -12,8 +12,12 @@ const CounterButton: React.FC<ButtonType> = ({
 }) => {
   return (
     <button
-      className={`text-white bg-red rounded mx-2 p-2 ${
-        index === 2 ? "bg-red-700" : "bg-blue-700"
+      className={`text-white rounded mx-2 p-2 ${
+        index === 0
+          ? "bg-green-600"
+          : index === 1
+          ? "bg-red-600"
+          : "bg-gray-600"
       }`}
       onClick={() => handleClick(index)}
     >

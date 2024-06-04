@@ -23,6 +23,7 @@ const Tab: React.FC = () => {
       </ul>
       {tabContent.map((content, index) => (
         <TabContent
+          title={content.title}
           content={content.description}
           key={content.id}
           index={index}

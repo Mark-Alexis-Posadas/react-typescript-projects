@@ -1,10 +1,10 @@
 import React from "react";
-import Tab from "./pages/Tab";
+import Counter from "./pages/Counter";
 
 const App: React.FC = () => {
   return (
     <>
-      <Tab />
+      <Counter />
     </>
   );
 };
