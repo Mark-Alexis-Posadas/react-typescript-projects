@@ -40,7 +40,7 @@ const Counter: React.FC = () => {
 
   return (
     <div className="text-center min-h-screen m-auto flex flex-col justify-center">
-      <h1 className="font-bold text-8xl">Counter App</h1>
+      <h1 className="font-bold text-4xl md:text-8xl">Counter App</h1>
       <h1 className="my-10 text-7xl font-bold">{state.count}</h1>
       <div>
         {buttonText.map((button, index) => (

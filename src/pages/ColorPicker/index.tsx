@@ -29,10 +29,10 @@ const ColorPicker: React.FC = () => {
   return (
     <div className="p-20 w-[900px] m-auto">
       <div className="bg-white shadow-[0 5px 10px rgba(0, 0, 0, 0.12)] rounded transition-[all 0.2s ease]">
-        <h2 className="font-bold text-4xl mb-20">Color Picker</h2>
+        <h1 className="font-bold text-8xl mb-20">Color Picker</h1>
         <div className="flex items-center justify-center">
           <div
-            className="w-20 h-20 rounded mr-7"
+            className="w-40 h-40 rounded mr-7"
             style={{ backgroundColor: hexColor }}
           ></div>
           <div className="flex flex-col">
