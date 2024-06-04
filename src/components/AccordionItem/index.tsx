@@ -18,15 +18,17 @@ const AccordionItem: React.FC<AccordionProps> = ({
   return (
     <>
       <li
-        className="flex items-center justify-between cursor-pointer p-2 my-2 border-t-2 border-b-2 border-black"
+        className="flex flex-col justify-between cursor-pointer p-2 my-2 border-t-2 border-b-2 border-black"
         onClick={() => toggleAccordion(id)}
       >
-        <h2 className="font-bold text-black">{title}</h2>
-        <span>
-          <FontAwesomeIcon icon={isActive ? faMinus : faPlus} />
-        </span>
+        <div className="flex items-center justify-between mb-3">
+          <h2 className="font-bold text-black">{title}</h2>
+          <span>
+            <FontAwesomeIcon icon={isActive ? faMinus : faPlus} />
+          </span>
+        </div>
+        {isActive && <div>{body}</div>}
       </li>
-      {isActive && <div>{body}</div>}
     </>
   );
 };
