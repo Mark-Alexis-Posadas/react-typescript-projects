@@ -12,10 +12,35 @@ const data = [
     id: 3,
     bgColor: "bg-yellow-600",
   },
-
   {
     id: 4,
     bgColor: "bg-red-600",
+  },
+  {
+    id: 5,
+    bgColor: "bg-blue-600",
+  },
+  {
+    id: 6,
+    bgColor: "bg-pink-600",
+  },
+  {
+    id: 7,
+    bgColor: "bg-teal-600",
+  },
+  {
+    id: 8,
+    bgColor: "bg-indigo-600",
+  },
+
+  {
+    id: 9,
+    bgColor: "bg-black",
+  },
+
+  {
+    id: 10,
+    bgColor: "bg-white",
   },
 ];
 
@@ -44,7 +69,7 @@ const Theme: React.FC = () => {
           Choose theme
         </button>
         {chooseTheme && (
-          <div className="bg-slate-50 p-2 rounded shadow-md flex items-center">
+          <div className="bg-slate-700 p-2 rounded shadow-md flex items-center mt-3">
             {data.map((item) => (
               <button
                 key={item.id}
