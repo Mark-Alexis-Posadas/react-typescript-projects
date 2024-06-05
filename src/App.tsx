@@ -1,11 +1,10 @@
 import React from "react";
-
-import ColorPicker from "./pages/ColorPicker";
+import SearchFiltering from "./pages/SearchFiltering";
 
 const App: React.FC = () => {
   return (
     <>
-      <ColorPicker />
+      <SearchFiltering />
     </>
   );
 };
