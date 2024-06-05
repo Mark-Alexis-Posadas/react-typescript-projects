@@ -1,10 +1,10 @@
 import React from "react";
-import Theme from "./pages/Theme";
+import Ratings from "./pages/Ratings";
 
 const App: React.FC = () => {
   return (
     <>
-      <Theme />
+      <Ratings />
     </>
   );
 };
