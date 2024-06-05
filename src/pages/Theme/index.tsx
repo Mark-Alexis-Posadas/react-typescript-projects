@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+
 const data = [
   {
     id: 1,
@@ -32,12 +33,10 @@ const data = [
     id: 8,
     bgColor: "bg-indigo-600",
   },
-
   {
     id: 9,
     bgColor: "bg-black",
   },
-
   {
     id: 10,
     bgColor: "bg-white",
@@ -49,10 +48,23 @@ const Theme: React.FC = () => {
     () => localStorage.getItem("theme") || data[0].bgColor
   );
   const [chooseTheme, setChooseTheme] = useState<boolean>(false);
+  const ref = useRef<HTMLDivElement>(null);
 
   const handleClick = (themeColor: string) => {
     setTheme(themeColor);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setChooseTheme(false);
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
@@ -61,10 +73,10 @@ const Theme: React.FC = () => {
   return (
     <div className="relative">
       <div className={`w-full min-h-screen ${theme}`}></div>
-      <div className="absolute top-5 right-5 flex flex-col items-end">
+      <div className="absolute top-5 right-5 flex flex-col items-end" ref={ref}>
         <button
           className="text-white bg-black p-2 rounded"
-          onClick={() => setChooseTheme((p) => !p)}
+          onClick={() => setChooseTheme((prev) => !prev)}
         >
           Choose theme
         </button>
