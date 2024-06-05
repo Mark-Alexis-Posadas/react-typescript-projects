@@ -1,10 +1,10 @@
 import React from "react";
-import SearchFiltering from "./pages/SearchFiltering";
+import Theme from "./pages/Theme";
 
 const App: React.FC = () => {
   return (
     <>
-      <SearchFiltering />
+      <Theme />
     </>
   );
 };
