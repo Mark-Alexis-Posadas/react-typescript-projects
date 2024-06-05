@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import ThemeItem from "../../components/ThemeItem";
 
 const data = [
   {
@@ -83,14 +84,12 @@ const Theme: React.FC = () => {
         {chooseTheme && (
           <div className="bg-slate-700 p-2 rounded shadow-md flex items-center mt-3">
             {data.map((item) => (
-              <button
+              <ThemeItem
+                item={item}
                 key={item.id}
-                className={`text-white w-10 h-10 rounded-full mr-2 ${item.bgColor}`}
-                style={
-                  theme === item.bgColor ? { border: "3px solid #222" } : {}
-                }
-                onClick={() => handleClick(item.bgColor)}
-              ></button>
+                handleClick={handleClick}
+                theme={theme}
+              />
             ))}
           </div>
         )}
