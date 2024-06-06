@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TodosItem from "../../components/TodosItem";
+import {
+  faCheckCircle,
+  faPlusCircle,
+  faXmarkCircle,
+} from "@fortawesome/free-solid-svg-icons";
 
 interface Todo {
   index: number | null;
@@ -13,6 +19,7 @@ const Todo: React.FC = () => {
   });
   const [inputVal, setInputVal] = useState<string>("");
   const [modalEdit, setModalEdit] = useState<boolean>(false);
+  const [exist, setExists] = useState<boolean>(false);
   const [currentTodo, setCurrentTodo] = useState<Todo>({
     index: null,
     text: "",
@@ -22,11 +29,21 @@ const Todo: React.FC = () => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
-  const handleAddTodo = () => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    todos.includes(e.target.value) ? setExists(true) : setExists(false);
+    setInputVal(e.target.value);
+  };
+
+  const handleAddTodo = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     if (inputVal.trim() === "") {
       alert("please add todo");
       return;
     }
+    if (exist) {
+      return;
+    }
+
     setTodos([...todos, inputVal]);
     setInputVal("");
   };
@@ -56,22 +73,27 @@ const Todo: React.FC = () => {
 
   return (
     <div className="p-5 md:p-0 md:max-w-[900px] m-auto relative">
-      <h1 className="mt-20 font-bold text-4xl md:text-8xl">Todo List APP</h1>
+      <h1 className="my-20 font-bold text-4xl md:text-8xl">Todo List APP</h1>
+      {exist && (
+        <span className="text-xs text-red-700">Todo Already Exist</span>
+      )}
       <form
         onSubmit={handleAddTodo}
-        className="flex items-center justify-center gap-3 my-10"
+        className="flex items-center justify-center gap-3 mb-5"
       >
         <input
           type="text"
           className="border border-slate rounded bg-slate-50 p-2 flex-1"
           placeholder="add todo"
-          onChange={(e) => setInputVal(e.target.value)}
+          onChange={handleChange}
           value={inputVal}
         />
+
         <button
-          className="bg-blue-600 text-white p-2 rounded hover:bg-blue-500"
+          className="bg-blue-600 text-white p-2 rounded hover:bg-blue-500 flex items-center justify-center gap-2"
           type="submit"
         >
+          <FontAwesomeIcon icon={faPlusCircle} />
           Add Todo
         </button>
       </form>
@@ -106,15 +128,17 @@ const Todo: React.FC = () => {
             />
             <div className="flex items-center gap-1 ml-3">
               <button
-                className="bg-blue-600 rounded p-2 text-white"
+                className="bg-blue-600 rounded p-2 text-white flex items-center justify-center gap-2"
                 onClick={handleUpdate}
               >
+                <FontAwesomeIcon icon={faCheckCircle} />
                 Update
               </button>
               <button
-                className="bg-gray-500 text-white p-2 rounded"
+                className="bg-gray-500 text-white p-2 rounded flex items-center justify-center gap-2"
                 onClick={() => setModalEdit(false)}
               >
+                <FontAwesomeIcon icon={faXmarkCircle} />
                 Cancel
               </button>
             </div>
