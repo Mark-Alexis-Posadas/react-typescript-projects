@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ChangeEvent } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TodosItem from "../../components/TodosItem";
 import {
@@ -31,6 +31,7 @@ const Todo: React.FC = () => {
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     todos.includes(e.target.value) ? setExists(true) : setExists(false);
+
     setInputVal(e.target.value);
   };
 
@@ -40,6 +41,7 @@ const Todo: React.FC = () => {
       alert("please add todo");
       return;
     }
+
     if (exist) {
       return;
     }
@@ -51,6 +53,10 @@ const Todo: React.FC = () => {
   const handleDelete = (index: number) => {
     const deleteTodo = todos.filter((_, idx) => idx !== index);
     setTodos(deleteTodo);
+    setInputVal("");
+    if (todos) {
+      setExists(false);
+    }
   };
 
   const handleEdit = (index: number) => {
