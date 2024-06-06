@@ -1,10 +1,10 @@
 import React from "react";
-import Ratings from "./pages/Ratings";
+import Todo from "./pages/Todo";
 
 const App: React.FC = () => {
   return (
     <>
-      <Ratings />
+      <Todo />
     </>
   );
 };
