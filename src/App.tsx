@@ -1,10 +1,10 @@
 import React from "react";
-import Todo from "./pages/Todo";
+import Carousel from "./pages/Carousel";
 
 const App: React.FC = () => {
   return (
     <>
-      <Todo />
+      <Carousel />
     </>
   );
 };
