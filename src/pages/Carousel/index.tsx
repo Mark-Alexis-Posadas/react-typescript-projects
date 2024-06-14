@@ -2,10 +2,10 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 const data: string[] = [
-  "https://images.pexels.com/photos/20175138/pexels-photo-20175138/free-photo-of-a-woman-sitting-on-the-ground-with-her-phone.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  "https://images.pexels.com/photos/3596282/pexels-photo-3596282.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  "https://images.pexels.com/photos/1777467/pexels-photo-1777467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  "https://images.pexels.com/photos/3225720/pexels-photo-3225720.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  "https://i.pinimg.com/564x/ba/59/2b/ba592b49ee04ddfe07bf6ce1f46964e3.jpg",
+  "https://i.pinimg.com/564x/fe/01/29/fe01293e09e5b8a55eb70369464b95aa.jpg",
+  "https://i.pinimg.com/564x/97/47/e8/9747e8bdf2737cad961f069c4c5a85b1.jpg",
+  "https://i.pinimg.com/564x/6a/24/66/6a2466c9185dbc61adbb1e9cbb0d474b.jpg",
 ];
 export default function Carousel() {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
