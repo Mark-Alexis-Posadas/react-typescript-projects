@@ -10,7 +10,7 @@ const Tab: React.FC = () => {
   };
   return (
     <div className="p-10">
-      <ul className="grid grid-cols-3  p-2 rounded-full bg-blue-600 w-full md:w-[500px] m-auto">
+      <ul className="grid grid-cols-3 w-full md:w-[600px] m-auto border-b border-slate-600 py-3">
         {tabText.map((item, index) => (
           <TabItem
             key={index}

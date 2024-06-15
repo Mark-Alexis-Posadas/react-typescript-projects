@@ -1,10 +1,9 @@
 import React from "react";
-import Carousel from "./pages/Carousel";
-
+import Tab from "./pages/Tab";
 const App: React.FC = () => {
   return (
     <>
-      <Carousel />
+      <Tab />
     </>
   );
 };
