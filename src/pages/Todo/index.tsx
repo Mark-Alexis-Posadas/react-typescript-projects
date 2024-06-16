@@ -64,6 +64,11 @@ const Todo: React.FC = () => {
     setModalEdit(true);
   };
 
+  const handleCancel = () => {
+    setModalEdit(false);
+    setCurrentTodo({ index: null, text: "" });
+  };
+
   const handleUpdate = () => {
     if (currentTodo.text.trim() === "") {
       alert("please enter a valid todo");
@@ -134,18 +139,18 @@ const Todo: React.FC = () => {
             />
             <div className="flex items-center gap-1 ml-3">
               <button
+                className="bg-gray-500 text-white p-2 rounded flex items-center justify-center gap-2"
+                onClick={handleCancel}
+              >
+                <FontAwesomeIcon icon={faXmarkCircle} />
+                Cancel
+              </button>
+              <button
                 className="bg-blue-600 rounded p-2 text-white flex items-center justify-center gap-2"
                 onClick={handleUpdate}
               >
                 <FontAwesomeIcon icon={faCheckCircle} />
                 Update
-              </button>
-              <button
-                className="bg-gray-500 text-white p-2 rounded flex items-center justify-center gap-2"
-                onClick={() => setModalEdit(false)}
-              >
-                <FontAwesomeIcon icon={faXmarkCircle} />
-                Cancel
               </button>
             </div>
           </div>

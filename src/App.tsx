@@ -1,9 +1,10 @@
 import React from "react";
-import Tab from "./pages/Tab";
+import Todo from "./pages/Todo";
+
 const App: React.FC = () => {
   return (
     <>
-      <Tab />
+      <Todo />
     </>
   );
 };
