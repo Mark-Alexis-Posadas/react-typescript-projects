@@ -1,10 +1,22 @@
 import React from "react";
-import Todo from "./pages/Todo";
+import { Route, Routes } from "react-router-dom";
+import { projectList, Types } from "./data/project-list";
+import ProjectDetails from "./ProjectDetails";
+import Projects from "./Projects";
 
 const App: React.FC = () => {
   return (
     <>
-      <Todo />
+      <Routes>
+        <Route path="/" element={<Projects />} />
+        {projectList.map((project: Types) => (
+          <Route
+            key={project.id}
+            path={`/${project.title}`}
+            element={<ProjectDetails project={project} />}
+          />
+        ))}
+      </Routes>
     </>
   );
 };
