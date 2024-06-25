@@ -1,5 +1,5 @@
 import React from "react";
-import { Types } from "./data/project-list"; // Import Types interface
+import { Types } from "./data/project-list";
 import { Link } from "react-router-dom";
 import Tab from "./pages/Tab";
 import Accordion from "./pages/Accordion";

@@ -6,7 +6,7 @@ import Projects from "./Projects";
 
 const App: React.FC = () => {
   return (
-    <>
+    <div className="bg-slate-100 min-h-screen p-20">
       <Routes>
         <Route path="/" element={<Projects />} />
         {projectList.map((project: Types) => (
@@ -17,7 +17,7 @@ const App: React.FC = () => {
           />
         ))}
       </Routes>
-    </>
+    </div>
   );
 };
 
