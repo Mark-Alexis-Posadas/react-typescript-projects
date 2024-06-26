@@ -21,6 +21,16 @@ const Todo: React.FC = () => {
   const [modalEdit, setModalEdit] = useState<boolean>(false);
   const [confirm, setConfirm] = useState<boolean>(false);
   const [exist, setExists] = useState<boolean>(false);
+  const [deleteTodo, setDeleteTodo] = useState<{
+    index: null | number;
+    isShow: boolean;
+    name: string;
+  }>({
+    index: null,
+    isShow: false,
+    name: "",
+  });
+
   const [currentTodo, setCurrentTodo] = useState<Todo>({
     index: null,
     text: "",
@@ -51,10 +61,18 @@ const Todo: React.FC = () => {
     setInputVal("");
   };
 
-  const handleDelete = (index: number) => {
-    const deleteTodo = todos.filter((_, idx) => idx !== index);
-    setTodos(deleteTodo);
-    setInputVal("");
+  const handleDelete = (index: number, todoName: string) => {
+    setDeleteTodo({ index: index, isShow: true, name: todoName });
+  };
+
+  const handleConfirm = () => {
+    if (deleteTodo.isShow) {
+      const deleteTodos = todos.filter((_, idx) => idx !== deleteTodo.index);
+      setTodos(deleteTodos);
+      setInputVal("");
+      setDeleteTodo({ index: null, isShow: false, name: "" });
+    }
+
     if (todos) {
       setExists(false);
     }
@@ -130,7 +148,7 @@ const Todo: React.FC = () => {
                 key={index}
                 item={item}
                 index={index}
-                handleDelete={handleDelete}
+                handleDelete={() => handleDelete(index, item)}
                 handleEdit={handleEdit}
                 isEditing={currentTodo.index === index}
               />
@@ -149,8 +167,8 @@ const Todo: React.FC = () => {
           <div className="bg-white rounded p-5 text-center">
             <h1 className="font-bold text-4xl mb-5">
               {todos.length > 1
-                ? "Yes delete all these todos"
-                : "Yes delete this Todo"}
+                ? "Are you sure to delete all these todos"
+                : "Are you sure to delete this todo ?"}
             </h1>
             <div className="flex items-center gap-3 w-full justify-center">
               <button
@@ -164,6 +182,30 @@ const Todo: React.FC = () => {
               <button
                 className="text-white p-2 rounded bg-red-600"
                 onClick={() => setConfirm(false)}
+              >
+                cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {deleteTodo.isShow && (
+        <div className="fixed left-0 top-0 right-0 bottom-0 flex items-center flex-col justify-center bg-[rgba(0,0,0,0.4)]">
+          <div className="bg-white rounded p-5 text-center">
+            <h1 className="font-bold text-4xl mb-5">
+              Are you sure to delete this <span>"{deleteTodo.name}"</span> ?
+            </h1>
+            <div className="flex items-center gap-3 w-full justify-center">
+              <button
+                className="text-white p-2 rounded bg-blue-600"
+                onClick={handleConfirm}
+              >
+                Yes delete
+              </button>
+              <button
+                className="text-white p-2 rounded bg-red-600"
+                onClick={() => setDeleteTodo({ isShow: false })}
               >
                 cancel
               </button>
