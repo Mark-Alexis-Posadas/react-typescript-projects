@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { projectList, Types } from "./data/project-list"; // Import projectList and Types interface
+import { projectList, Types } from "./data/project-list";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowUpRightFromSquare,

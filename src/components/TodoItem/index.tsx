@@ -21,10 +21,10 @@ const TodosItem: React.FC<TodoItemType> = ({
       key={index}
       className={`border ${
         isEditing ? "border-green-500" : "border-slate-70"
-      } rounded p-2 flex items-center justify-between bg-white my-2`}
+      } rounded p-2 flex items-start md:items-center justify-between flex-col md:flex-row bg-white my-2`}
     >
       {item}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 mt-5 md:mt-0">
         <button
           className="bg-blue-600 text-white rounded p-2 flex items-center justify-center gap-2"
           onClick={() => handleEdit(index)}

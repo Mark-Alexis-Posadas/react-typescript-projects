@@ -1,6 +1,6 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import TodosItem from "../../components/TodosItem";
+import TodoItem from "../../components/TodoItem";
 import {
   faCheckCircle,
   faPlusCircle,
@@ -84,7 +84,7 @@ const Todo: React.FC = () => {
 
   return (
     <div className="p-5 md:p-0 md:max-w-[900px] m-auto relative">
-      <h1 className="my-20 font-bold text-4xl md:text-8xl">Todo List APP</h1>
+      <h1 className="mb-5 font-bold text-4xl md:text-5xl">Todo List APP</h1>
       {exist && (
         <span className="text-xs text-red-700">Todo Already Exist</span>
       )}
@@ -92,28 +92,30 @@ const Todo: React.FC = () => {
         onSubmit={handleAddTodo}
         className="flex items-center justify-center gap-3 mb-5"
       >
-        <input
-          type="text"
-          className="border border-slate rounded bg-slate-50 p-2 flex-1"
-          placeholder="add todo"
-          onChange={handleChange}
-          value={inputVal}
-        />
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-3 w-full">
+          <input
+            type="text"
+            className="border border-slate rounded bg-slate-50 p-2 flex-1"
+            placeholder="add todo"
+            onChange={handleChange}
+            value={inputVal}
+          />
 
-        <button
-          className="bg-blue-600 text-white p-2 rounded hover:bg-blue-500 flex items-center justify-center gap-2"
-          type="submit"
-        >
-          <FontAwesomeIcon icon={faPlusCircle} />
-          Add Todo
-        </button>
+          <button
+            className="bg-blue-600 text-white p-2 rounded hover:bg-blue-500 flex items-center justify-center gap-2"
+            type="submit"
+          >
+            <FontAwesomeIcon icon={faPlusCircle} />
+            Add Todo
+          </button>
+        </div>
       </form>
       {todos.length <= 0 ? (
         "No todos left"
       ) : (
         <ul>
           {todos.map((item, index) => (
-            <TodosItem
+            <TodoItem
               key={index}
               item={item}
               index={index}
