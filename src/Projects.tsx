@@ -11,11 +11,11 @@ faArrowUpRightFromSquare;
 const Projects: React.FC = () => {
   return (
     <nav>
-      <ul className="grid grid-cols-3 gap-3">
+      <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
         {projectList.map((project: Types) => (
-          <li key={project.id} className="bg-[#1f1f1f] p-3 rounded">
+          <li key={project.id} className="bg-[#fafafa] p-3 rounded">
             <Link to={`/${project.title}`}>
-              <header className="flex items-center justify-between">
+              <header className="flex items-center justify-between py-2">
                 <FontAwesomeIcon
                   className="text-2xl text-[#999]"
                   icon={faFolder}
@@ -31,9 +31,10 @@ const Projects: React.FC = () => {
                   />
                 </div>
               </header>
-              <h2 className="font-bold text-[#999] capitalize">
+              <h2 className="font-bold text-[#999] capitalize mb-2">
                 {project.title}
               </h2>
+              <p className="text-[#666] text-sm">{project.description}</p>
             </Link>
           </li>
         ))}

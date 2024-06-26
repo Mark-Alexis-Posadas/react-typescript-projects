@@ -10,6 +10,8 @@ import Ratings from "./pages/Ratings";
 import SearchFiltering from "./pages/SearchFiltering";
 import Theme from "./pages/Theme";
 import Todo from "./pages/Todo";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 interface ProjectDetailsProps {
   project: Types;
@@ -43,10 +45,12 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project }) => {
   };
   return (
     <div>
-      <button>
-        <Link to="/">Back</Link>
-      </button>
-      <h2>{project.title}</h2>
+      <Link to="/">
+        <button className="border border-slate-400 p-3 rounded-full text-slate-400 w-[50px] h-[50px]">
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </button>
+      </Link>
+
       {renderProjectComponent()}
     </div>
   );
