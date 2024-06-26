@@ -19,6 +19,7 @@ const Todo: React.FC = () => {
   });
   const [inputVal, setInputVal] = useState<string>("");
   const [modalEdit, setModalEdit] = useState<boolean>(false);
+  const [confirm, setConfirm] = useState<boolean>(false);
   const [exist, setExists] = useState<boolean>(false);
   const [currentTodo, setCurrentTodo] = useState<Todo>({
     index: null,
@@ -82,6 +83,15 @@ const Todo: React.FC = () => {
     setCurrentTodo({ index: null, text: "" });
   };
 
+  const handleClearAll = () => {
+    setConfirm(true);
+  };
+
+  const handleYes = () => {
+    setTodos([]);
+    setConfirm(false);
+  };
+
   return (
     <div className="p-5 md:p-0 md:max-w-[900px] m-auto relative">
       <h1 className="mb-5 font-bold text-4xl md:text-5xl">Todo List APP</h1>
@@ -113,18 +123,53 @@ const Todo: React.FC = () => {
       {todos.length <= 0 ? (
         "No todos left"
       ) : (
-        <ul>
-          {todos.map((item, index) => (
-            <TodoItem
-              key={index}
-              item={item}
-              index={index}
-              handleDelete={handleDelete}
-              handleEdit={handleEdit}
-              isEditing={currentTodo.index === index}
-            />
-          ))}
-        </ul>
+        <>
+          <ul>
+            {todos.map((item, index) => (
+              <TodoItem
+                key={index}
+                item={item}
+                index={index}
+                handleDelete={handleDelete}
+                handleEdit={handleEdit}
+                isEditing={currentTodo.index === index}
+              />
+            ))}
+          </ul>
+          <button
+            className="text-center text-white bg-blue-600 p-2 rounded mt-2"
+            onClick={handleClearAll}
+          >
+            {todos.length > 1 ? "Clear All Todos" : "Clear Todo"}
+          </button>
+        </>
+      )}
+      {confirm && (
+        <div className="fixed left-0 top-0 right-0 bottom-0 flex items-center flex-col justify-center bg-[rgba(0,0,0,0.4)]">
+          <div className="bg-white rounded p-5 text-center">
+            <h1 className="font-bold text-4xl mb-5">
+              {todos.length > 1
+                ? "Yes delete all these todos"
+                : "Yes delete this Todo"}
+            </h1>
+            <div className="flex items-center gap-3 w-full justify-center">
+              <button
+                className="text-white p-2 rounded bg-blue-600"
+                onClick={handleYes}
+              >
+                {todos.length > 1
+                  ? "yes delete all these todos"
+                  : "yes delete this Todo"}
+              </button>
+              <button
+                className="text-white p-2 rounded bg-red-600"
+                onClick={() => setConfirm(false)}
+              >
+                cancel
+              </button>
+            </div>
+          </div>
+        </div>
       )}
 
       {modalEdit && (
