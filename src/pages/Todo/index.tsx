@@ -93,6 +93,7 @@ const Todo: React.FC = () => {
       setAlert(true);
 
       setAlertText(`${deleteTodo.name} has been Deleted`);
+      setAlertColor(true);
     }
 
     if (todos) {
@@ -123,7 +124,8 @@ const Todo: React.FC = () => {
     setTodos(updatedTodos);
 
     setAlert(true);
-    setAlertText("todo has been update!");
+
+    setAlertText("Todo has been update");
     setAlertColor(true);
 
     setModalEdit(false);

@@ -20,7 +20,7 @@ const TodosItem: React.FC<TodoItemType> = ({
     <li
       key={index}
       className={`border ${
-        isEditing ? "border-green-500" : "border-slate-70"
+        isEditing ? "border-green-500 text-green-500" : "border-slate-70"
       } rounded p-2 flex items-start md:items-center justify-between flex-col md:flex-row bg-white my-2`}
     >
       {item}
