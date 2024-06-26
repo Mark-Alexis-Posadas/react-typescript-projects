@@ -20,6 +20,8 @@ const Todo: React.FC = () => {
   const [inputVal, setInputVal] = useState<string>("");
   const [modalEdit, setModalEdit] = useState<boolean>(false);
   const [confirm, setConfirm] = useState<boolean>(false);
+  const [alert, setAlert] = useState<boolean>(false);
+  const [alertText, setAlertText] = useState<string>("");
   const [exist, setExists] = useState<boolean>(false);
   const [deleteTodo, setDeleteTodo] = useState<{
     index: null | number;
@@ -40,6 +42,16 @@ const Todo: React.FC = () => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
+  useEffect(() => {
+    if (alert) {
+      const timer = setTimeout(() => {
+        setAlert(false);
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [alert]);
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     todos.includes(e.target.value) ? setExists(true) : setExists(false);
 
@@ -49,7 +61,8 @@ const Todo: React.FC = () => {
   const handleAddTodo = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (inputVal.trim() === "") {
-      alert("please add todo");
+      setAlertText("Please add todo...");
+      setAlert(true);
       return;
     }
 
@@ -75,6 +88,7 @@ const Todo: React.FC = () => {
         ...prevState,
         isShow: false,
       }));
+      setAlert(true);
     }
 
     if (todos) {
@@ -94,13 +108,18 @@ const Todo: React.FC = () => {
 
   const handleUpdate = () => {
     if (currentTodo.text.trim() === "") {
-      alert("please enter a valid todo");
+      setAlertText("please enter a valid todo");
+      setAlert(true);
       return;
     }
+
     const updatedTodos: string[] = todos.map((todo, idx) =>
       idx === currentTodo.index ? currentTodo.text : todo
     );
     setTodos(updatedTodos);
+    setAlertText("Success");
+
+    setAlert(true);
     setModalEdit(false);
     setCurrentTodo({ index: null, text: "" });
   };
@@ -112,10 +131,22 @@ const Todo: React.FC = () => {
   const handleYes = () => {
     setTodos([]);
     setConfirm(false);
+    setAlert(true);
   };
 
   return (
     <div className="p-5 md:p-0 md:max-w-[900px] m-auto relative">
+      {alert && (
+        <p
+          className={`${
+            inputVal.trim() === "" &&
+            currentTodo.text.trim() === "" &&
+            "text-red-500  border-red-400 bg-red-200"
+          } text-green-500 p-2 border border-green-400 bg-green-200 rounded`}
+        >
+          {alertText}
+        </p>
+      )}
       <h1 className="mb-5 font-bold text-4xl md:text-5xl">Todo List APP</h1>
       {exist && (
         <span className="text-xs text-red-700">Todo Already Exist</span>
@@ -142,6 +173,7 @@ const Todo: React.FC = () => {
           </button>
         </div>
       </form>
+
       {todos.length <= 0 ? (
         "No todos left"
       ) : (
