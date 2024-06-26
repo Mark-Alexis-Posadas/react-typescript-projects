@@ -22,6 +22,7 @@ const Todo: React.FC = () => {
   const [confirm, setConfirm] = useState<boolean>(false);
   const [alert, setAlert] = useState<boolean>(false);
   const [alertText, setAlertText] = useState<string>("");
+  const [alertColor, setAlertColor] = useState<boolean>(false);
   const [exist, setExists] = useState<boolean>(false);
   const [deleteTodo, setDeleteTodo] = useState<{
     index: null | number;
@@ -63,6 +64,7 @@ const Todo: React.FC = () => {
     if (inputVal.trim() === "") {
       setAlertText("Please add todo...");
       setAlert(true);
+      setAlertColor(false);
       return;
     }
 
@@ -121,7 +123,8 @@ const Todo: React.FC = () => {
     setTodos(updatedTodos);
 
     setAlert(true);
-    setAlertText("Success");
+    setAlertText("todo has been update!");
+    setAlertColor(true);
 
     setModalEdit(false);
     setCurrentTodo({ index: null, text: "" });
@@ -142,20 +145,14 @@ const Todo: React.FC = () => {
 
   return (
     <div className="p-5 md:p-0 md:max-w-[900px] m-auto relative">
-      {alert && (
-        <p
-          className={`${
-            inputVal !== "" || currentTodo.text !== ""
-              ? "border-green-400 bg-green-200 text-green-500"
-              : "text-red-500  border-red-400 bg-red-200"
-          } p-2 border rounded`}
-        >
-          {alertText}
-        </p>
-      )}
       <h1 className="mb-5 font-bold text-4xl md:text-5xl">Todo List APP</h1>
       {exist && (
         <span className="text-xs text-red-700">Todo Already Exist</span>
+      )}
+      {alert && (
+        <p className={alertColor ? "text-green-500" : "text-red-500"}>
+          {alertText}
+        </p>
       )}
       <form
         onSubmit={handleAddTodo}
