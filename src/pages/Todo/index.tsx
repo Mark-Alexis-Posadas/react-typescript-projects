@@ -89,6 +89,8 @@ const Todo: React.FC = () => {
         isShow: false,
       }));
       setAlert(true);
+
+      setAlertText(`${deleteTodo.name} has been Deleted`);
     }
 
     if (todos) {
@@ -117,9 +119,10 @@ const Todo: React.FC = () => {
       idx === currentTodo.index ? currentTodo.text : todo
     );
     setTodos(updatedTodos);
-    setAlertText("Success");
 
     setAlert(true);
+    setAlertText("Success");
+
     setModalEdit(false);
     setCurrentTodo({ index: null, text: "" });
   };
@@ -131,6 +134,9 @@ const Todo: React.FC = () => {
   const handleYes = () => {
     setTodos([]);
     setConfirm(false);
+    const res =
+      todos.length > 1 ? "All todos has been deleted!" : "The todo is deleted!";
+    setAlertText(res);
     setAlert(true);
   };
 
@@ -139,10 +145,10 @@ const Todo: React.FC = () => {
       {alert && (
         <p
           className={`${
-            inputVal.trim() === "" &&
-            currentTodo.text.trim() === "" &&
-            "text-red-500  border-red-400 bg-red-200"
-          } text-green-500 p-2 border border-green-400 bg-green-200 rounded`}
+            inputVal !== "" || currentTodo.text !== ""
+              ? "border-green-400 bg-green-200 text-green-500"
+              : "text-red-500  border-red-400 bg-red-200"
+          } p-2 border rounded`}
         >
           {alertText}
         </p>
