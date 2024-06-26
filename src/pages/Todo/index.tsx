@@ -70,7 +70,11 @@ const Todo: React.FC = () => {
       const deleteTodos = todos.filter((_, idx) => idx !== deleteTodo.index);
       setTodos(deleteTodos);
       setInputVal("");
-      setDeleteTodo({ index: null, isShow: false, name: "" });
+
+      setDeleteTodo((prevState) => ({
+        ...prevState,
+        isShow: false,
+      }));
     }
 
     if (todos) {
@@ -205,7 +209,13 @@ const Todo: React.FC = () => {
               </button>
               <button
                 className="text-white p-2 rounded bg-red-600"
-                onClick={() => setDeleteTodo({ isShow: false })}
+                // onClick={() => setDeleteTodo({ isShow: false })}
+                onClick={() =>
+                  setDeleteTodo((prevState) => ({
+                    ...prevState,
+                    isShow: false,
+                  }))
+                }
               >
                 cancel
               </button>
