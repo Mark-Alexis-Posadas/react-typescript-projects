@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TodoItem from "../../components/TodoItem";
 import {
   faCheckCircle,
+  faExclamation,
   faPlusCircle,
   faXmarkCircle,
 } from "@fortawesome/free-solid-svg-icons";
@@ -158,7 +159,7 @@ const Todo: React.FC = () => {
   };
 
   return (
-    <div className="p-5 md:p-0 md:max-w-[900px] m-auto relative text-center">
+    <div className="p-5 md:p-0 md:max-w-[900px] m-auto relative text-center montserrat">
       <h1 className="mb-5 font-bold text-4xl md:text-5xl">Todo List APP</h1>
       {exist && (
         <span className="text-xs text-red-700">Todo Already Exist</span>
@@ -219,6 +220,10 @@ const Todo: React.FC = () => {
       {confirm && (
         <div className="fixed left-0 top-0 right-0 bottom-0 flex items-center flex-col justify-center bg-[rgba(0,0,0,0.4)]">
           <div className="bg-white rounded p-5 text-center">
+            <FontAwesomeIcon
+              icon={faExclamation}
+              className="text-5xl text-red-500 rounded-full p-5 border-2 border-red-500 w-[100px] h-[100px] mb-5"
+            />
             <h1 className="font-bold text-4xl mb-5">
               {todos.length > 1
                 ? "Are you sure to delete all these todos"
@@ -230,8 +235,8 @@ const Todo: React.FC = () => {
                 onClick={handleYes}
               >
                 {todos.length > 1
-                  ? "yes delete all these todos"
-                  : "yes delete this Todo"}
+                  ? "Are you sure to delete all these Todos"
+                  : "Are you sure to delete this Todo"}
               </button>
               <button
                 className="text-white p-2 rounded bg-red-600"
