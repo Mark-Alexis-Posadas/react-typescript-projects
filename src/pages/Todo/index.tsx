@@ -113,20 +113,26 @@ const Todo: React.FC = () => {
 
   const handleUpdate = () => {
     if (currentTodo.text.trim() === "") {
-      setAlertText("please enter a valid todo");
+      setAlertText("Please enter a valid todo");
       setAlert(true);
       return;
     }
 
-    const updatedTodos: string[] = todos.map((todo, idx) =>
-      idx === currentTodo.index ? currentTodo.text : todo
-    );
-    setTodos(updatedTodos);
+    if (
+      currentTodo.index !== null &&
+      currentTodo.text !== todos[currentTodo.index]
+    ) {
+      setAlert(true);
+      setAlertText("Todo has been updated");
+      setAlertColor(true);
+    }
 
-    setAlert(true);
-
-    setAlertText("Todo has been update");
-    setAlertColor(true);
+    if (currentTodo.index !== null) {
+      const updatedTodos: string[] = todos.map((todo, idx) =>
+        idx === currentTodo.index ? currentTodo.text : todo
+      );
+      setTodos(updatedTodos);
+    }
 
     setModalEdit(false);
     setCurrentTodo({ index: null, text: "" });
@@ -143,6 +149,8 @@ const Todo: React.FC = () => {
       todos.length > 1 ? "All todos has been deleted!" : "The todo is deleted!";
     setAlertText(res);
     setAlert(true);
+    setAlertColor(true);
+    setInputVal("");
   };
 
   return (
