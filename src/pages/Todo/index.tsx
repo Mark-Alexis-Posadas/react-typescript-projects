@@ -49,7 +49,7 @@ const Todo: React.FC = () => {
     if (alert) {
       const timer = setTimeout(() => {
         setAlert(false);
-      }, 3000);
+      }, 2000);
 
       return () => clearTimeout(timer);
     }
