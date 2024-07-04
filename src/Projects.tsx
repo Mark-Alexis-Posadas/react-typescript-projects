@@ -17,16 +17,16 @@ const Projects: React.FC = () => {
             <Link to={`/${project.title}`}>
               <header className="flex items-center justify-between py-2">
                 <FontAwesomeIcon
-                  className="text-2xl text-[#999]"
+                  className="text-2xl text-[#999] group-hover:text-green-200"
                   icon={faFolder}
                 />
                 <div className="flex items-center gap-3">
                   <FontAwesomeIcon
-                    className="text-2xl text-[#999]"
+                    className="text-2xl text-[#999] group-hover:text-green-200"
                     icon={faGithub}
                   />
                   <FontAwesomeIcon
-                    className="text-2xl text-[#999]"
+                    className="text-2xl text-[#999] group-hover:text-green-200"
                     icon={faArrowUpRightFromSquare}
                   />
                 </div>
