@@ -6,7 +6,7 @@ import Projects from "./Projects";
 
 const App: React.FC = () => {
   return (
-    <div className="bg-slate-100 min-h-screen p-5 md:p-10 lg:p-14 font-jost">
+    <div className="bg-slate-50 min-h-screen p-5 md:p-10 lg:p-14 font-jost">
       <Routes>
         <Route path="/" element={<Projects />} />
         {projectList.map((project: Types) => (

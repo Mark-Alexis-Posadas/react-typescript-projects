@@ -13,7 +13,7 @@ const Projects: React.FC = () => {
     <nav>
       <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
         {projectList.map((project: Types) => (
-          <li key={project.id} className="bg-[#fafafa] p-3 rounded">
+          <li key={project.id} className="bg-white p-3 rounded">
             <Link to={`/${project.title}`}>
               <header className="flex items-center justify-between py-2">
                 <FontAwesomeIcon
