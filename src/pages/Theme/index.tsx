@@ -1,52 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import ThemeItem from "../../components/ThemeItem";
-
-const data = [
-  {
-    id: 1,
-    bgColor: "bg-green-600",
-  },
-  {
-    id: 2,
-    bgColor: "bg-purple-600",
-  },
-  {
-    id: 3,
-    bgColor: "bg-yellow-600",
-  },
-  {
-    id: 4,
-    bgColor: "bg-red-600",
-  },
-  {
-    id: 5,
-    bgColor: "bg-blue-600",
-  },
-  {
-    id: 6,
-    bgColor: "bg-pink-600",
-  },
-  {
-    id: 7,
-    bgColor: "bg-teal-600",
-  },
-  {
-    id: 8,
-    bgColor: "bg-indigo-600",
-  },
-  {
-    id: 9,
-    bgColor: "bg-black",
-  },
-  {
-    id: 10,
-    bgColor: "bg-white",
-  },
-];
+import { themeData } from "./data";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
 
 const Theme: React.FC = () => {
   const [theme, setTheme] = useState<string>(
-    () => localStorage.getItem("theme") || data[0].bgColor
+    () => localStorage.getItem("theme") || themeData[0].bgColor
   );
   const [chooseTheme, setChooseTheme] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -166,14 +126,15 @@ const Theme: React.FC = () => {
       </div>
       <div className="absolute top-5 right-5 flex flex-col items-end" ref={ref}>
         <button
-          className="text-white bg-black p-2 rounded"
+          className="text-white bg-black p-2 rounded flex items-center gap-3"
           onClick={() => setChooseTheme((prev) => !prev)}
         >
+          <FontAwesomeIcon icon={faGear} />
           Choose theme
         </button>
         {chooseTheme && (
           <div className="bg-slate-700 p-2 rounded shadow-md flex items-center mt-3">
-            {data.map((item) => (
+            {themeData.map((item) => (
               <ThemeItem
                 item={item}
                 key={item.id}
