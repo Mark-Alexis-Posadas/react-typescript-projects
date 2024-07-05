@@ -20,16 +20,16 @@ const Projects: React.FC = () => {
             <Link to={`/${project.title}`}>
               <header className="flex items-center justify-between py-2">
                 <FontAwesomeIcon
-                  className="text-2xl text-[#999] group-hover:text-green-200"
+                  className="text-2xl text-[#999] group-hover:text-green-300"
                   icon={faFolder}
                 />
                 <div className="flex items-center gap-3">
                   <FontAwesomeIcon
-                    className="text-2xl text-[#999] group-hover:text-green-200"
+                    className="text-2xl text-[#999] group-hover:text-green-300"
                     icon={faGithub}
                   />
                   <FontAwesomeIcon
-                    className="text-2xl text-[#999] group-hover:text-green-200"
+                    className="text-2xl text-[#999] group-hover:text-green-300"
                     icon={faArrowUpRightFromSquare}
                   />
                 </div>
@@ -38,7 +38,7 @@ const Projects: React.FC = () => {
                 {project.title}
               </h2>
               <p className="text-[#666] text-sm my-2">{project.description}</p>
-              <ul className="flex flex-wrap items-center gap-3">
+              <ul className="flex flex-wrap items-center gap-3 mt-auto">
                 {project.tags.map((item, index) => (
                   <li
                     key={index}
