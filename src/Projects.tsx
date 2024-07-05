@@ -13,7 +13,10 @@ const Projects: React.FC = () => {
     <nav>
       <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 ">
         {projectList.map((project: Types) => (
-          <li key={project.id} className="bg-white p-3 rounded group">
+          <li
+            key={project.id}
+            className="p-3 rounded group bg-white shadow-custom-shadow transition transform duration-300 hover:shadow-lg hover:scale-105"
+          >
             <Link to={`/${project.title}`}>
               <header className="flex items-center justify-between py-2">
                 <FontAwesomeIcon
