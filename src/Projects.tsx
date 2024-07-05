@@ -42,7 +42,7 @@ const Projects: React.FC = () => {
                 {project.tags.map((item, index) => (
                   <li
                     key={index}
-                    className="group-hover:bg-green-200 group-hover:text-white text-sm text-green-500 border border-green-500 py-1 px-2 bg-green-100 rounded-full flex items-center justify-center p-1"
+                    className="group-hover:bg-green-300 group-hover:text-white group-hover:border-none text-sm text-green-500 border border-green-500 py-1 px-2 bg-green-100 rounded-full flex items-center justify-center p-1"
                   >
                     {item}
                   </li>
