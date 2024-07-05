@@ -32,7 +32,7 @@ export default function Carousel({ active }: ActiveType) {
   };
 
   return (
-    <div className="mt-20 m-auto max-w-[350px] flex items-center flex-col relative bg-white shadow-md p-3 rounded">
+    <div className="mt-5 md:mt-10 lg:mt-20 m-auto max-w-[350px] flex items-center flex-col relative bg-white shadow-md p-3 rounded">
       {data.map((item, index) => (
         <img
           src={item}
