@@ -35,7 +35,7 @@ const Projects: React.FC = () => {
                 {project.title}
               </h2>
               <p className="text-[#666] text-sm my-2">{project.description}</p>
-              <ul className="flex items-center gap-3">
+              <ul className="flex flex-wrap items-center gap-3">
                 {project.tags.map((item, index) => (
                   <li
                     key={index}
