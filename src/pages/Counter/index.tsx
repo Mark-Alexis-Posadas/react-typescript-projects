@@ -1,6 +1,7 @@
 import React, { useReducer } from "react";
 import { buttonText } from "./data";
 import CounterButton from "../../components/CounterButton";
+import SourceCode from "../../components/SourceCode";
 
 type State = {
   count: number;
@@ -39,18 +40,21 @@ const Counter: React.FC = () => {
   };
 
   return (
-    <div className="text-center min-h-screen m-auto flex flex-col justify-center">
-      <h1 className="font-bold text-4xl md:text-8xl">Counter App</h1>
-      <h1 className="my-10 text-7xl font-bold">{state.count}</h1>
-      <div>
-        {buttonText.map((button, index) => (
-          <CounterButton
-            key={index}
-            buttonText={button}
-            index={index}
-            handleClick={handleClick}
-          />
-        ))}
+    <div className="flex flex-col items-end">
+      <SourceCode link="https://github.com/Mark-Alexis-Posadas/react-typescript-projects/blob/main/src/pages/Counter/index.tsx" />
+      <div className="text-center min-h-screen m-auto flex flex-col justify-center">
+        <h1 className="font-bold text-4xl md:text-8xl">Counter App</h1>
+        <h1 className="my-10 text-7xl font-bold">{state.count}</h1>
+        <div>
+          {buttonText.map((button, index) => (
+            <CounterButton
+              key={index}
+              buttonText={button}
+              index={index}
+              handleClick={handleClick}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
