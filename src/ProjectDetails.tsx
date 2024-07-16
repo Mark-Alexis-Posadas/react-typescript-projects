@@ -7,7 +7,7 @@ import Carousel from "./pages/Carousel";
 import ColorPicker from "./pages/ColorPicker";
 import Counter from "./pages/Counter";
 import Ratings from "./pages/Ratings";
-import SearchFiltering from "./pages/SearchFiltering";
+import Filtering from "./pages/Filtering";
 import Theme from "./pages/Theme";
 import Todo from "./pages/Todo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -31,8 +31,8 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project }) => {
         return <Counter />;
       case "ratings":
         return <Ratings />;
-      case "search-filtering":
-        return <SearchFiltering />;
+      case "filtering":
+        return <Filtering />;
       case "tab":
         return <Tab />;
       case "theme":

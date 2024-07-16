@@ -42,7 +42,7 @@ export const projectList: Types[] = [
   },
   {
     id: uuidv4(),
-    title: "search-filtering",
+    title: "filtering",
     description: "test",
     tags: ["React JS", "Tailwind CSS", "React Hooks", "Local Storage"],
   },
