@@ -53,7 +53,7 @@ const ColorPicker: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex flex-wrap  items-center justify-start md:justify-center bg-white shadow-md p-3 mt-10 rounded">
+      <div className="flex flex-wrap gap-3 items-center justify-start md:justify-center bg-white shadow-md p-3 mt-10 rounded">
         <ColorPickerItems
           colorData={colors}
           handleClick={handleClick}
