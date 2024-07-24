@@ -28,7 +28,7 @@ const data: string[] = [
 ];
 export default function SearchFiltering() {
   const [filteredItem, setFilteredItem] = useState<string>("");
-  const [visible, setVisible] = useState<boolean>(true);
+  const [visible, setVisible] = useState<boolean>(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilteredItem(e.target.value);

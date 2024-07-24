@@ -49,7 +49,7 @@ export default function Carousel({ active }: ActiveType) {
           <div
             key={index}
             onClick={() => handleDotClick(index)}
-            className={`w-[10px] h-[10px] rounded-full ${
+            className={`w-[10px] h-[10px] cursor-pointer rounded-full ${
               index === currentSlide ? "bg-green-400" : " bg-slate-300"
             }`}
           ></div>
