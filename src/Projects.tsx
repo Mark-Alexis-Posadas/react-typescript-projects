@@ -15,7 +15,7 @@ const Projects: React.FC = () => {
         {projectList.map((project: Types) => (
           <li
             key={project.id}
-            className="p-3 rounded group bg-white shadow-custom-shadow transition transform duration-300 hover:shadow-lg hover:scale-105"
+            className="p-3 rounded group bg-white dark:bg-gray-800 shadow-custom-shadow transition transform duration-300 hover:shadow-lg hover:scale-105"
           >
             <Link to={`/${project.title}`}>
               <header className="flex items-center justify-between py-2">
@@ -34,15 +34,17 @@ const Projects: React.FC = () => {
                   />
                 </div>
               </header>
-              <h2 className="font-bold text-[#999] capitalize">
+              <h2 className="font-bold text-[#999] dark:text-white capitalize">
                 {project.title}
               </h2>
-              <p className="text-[#666] text-sm my-2">{project.description}</p>
+              <p className="text-[#666] text-sm my-2 dark:text-[#999]">
+                {project.description}
+              </p>
               <ul className="flex flex-wrap items-center gap-3 mt-auto">
                 {project.tags.map((item, index) => (
                   <li
                     key={index}
-                    className="group-hover:bg-green-300 group-hover:text-white group-hover:border-none text-sm text-green-500 border border-green-500 py-1 px-2 bg-green-100 rounded-full flex items-center justify-center p-1"
+                    className="dark:bg-gray-700 dark:text-white group-hover:bg-green-300 group-hover:text-white group-hover:border-none text-sm text-green-500 border border-green-500 py-1 px-2 bg-green-100 rounded-full flex items-center justify-center p-1"
                   >
                     {item}
                   </li>

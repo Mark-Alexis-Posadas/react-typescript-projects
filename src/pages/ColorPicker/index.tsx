@@ -31,7 +31,7 @@ const ColorPicker: React.FC = () => {
     <div className="flex flex-col items-end justify-center">
       <SourceCode link="https://github.com/Mark-Alexis-Posadas/react-typescript-projects/blob/main/src/pages/ColorPicker/index.tsx" />
       <div className="min-h-screen  flex flex-col items-center justify-center w-full lg:w-[900px] m-auto">
-        <div className="bg-white shadow-[0 5px 10px rgba(0, 0, 0, 0.12)] rounded transition-[all 0.2s ease]">
+        <div className="bg-white shadow-[0 5px 10px rgba(0, 0, 0, 0.12)] rounded transition-[all 0.2s ease] p-10">
           <h1 className="font-bold text-4xl md:text-8xl mb-20">Color Picker</h1>
           <div className="flex flex-col md:flex-row items-center justify-center">
             <div
