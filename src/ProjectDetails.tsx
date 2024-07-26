@@ -12,6 +12,7 @@ import Theme from "./pages/Theme";
 import Todo from "./pages/Todo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import EmployeeManagement from "./pages/EmployeeManagement/page";
 
 interface ProjectDetailsProps {
   project: Types;
@@ -21,6 +22,8 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project }) => {
   const { title } = project;
   const renderProjectComponent = () => {
     switch (title) {
+      case "employee-management-system":
+        return <EmployeeManagement />;
       case "accordion":
         return <Accordion />;
       case "carousel":

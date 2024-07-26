@@ -10,6 +10,13 @@ export interface Types {
 export const projectList: Types[] = [
   {
     id: uuidv4(),
+    title: "employee-management-system",
+    description:
+      "This project implements a simple Employee Management System where users can add, read, edit, and delete employee records. The application also utilizes local storage to persist employee data across sessions.  ",
+    tags: ["React JS", "Tailwind CSS", "React Hooks", "Local Storage"],
+  },
+  {
+    id: uuidv4(),
     title: "accordion",
     description:
       "This project demonstrates an accordion component built using React, Tailwind CSS for styling, and React Hooks for state management. It allows users to expand and collapse sections to show and hide content.",
