@@ -37,6 +37,12 @@ export const projectList: Types[] = [
   },
   {
     id: uuidv4(),
+    title: "user-management-system",
+    description: "test",
+    tags: ["React JS", "Tailwind CSS", "Redux Toolkit", "Local Storage"],
+  },
+  {
+    id: uuidv4(),
     title: "counter",
     description: "test",
     tags: ["React JS", "Tailwind CSS", "React Hooks", "Local Storage"],
