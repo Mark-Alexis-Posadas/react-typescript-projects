@@ -13,7 +13,6 @@ import Todo from "./pages/Todo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import EmployeeManagement from "./pages/EmployeeManagement/page";
-import UserManagementSystem from "./pages/UserManagementSystem/page";
 
 interface ProjectDetailsProps {
   project: Types;
@@ -31,8 +30,6 @@ const ProjectDetails: React.FC<ProjectDetailsProps> = ({ project }) => {
         return <Carousel />;
       case "color-picker":
         return <ColorPicker />;
-      case "user-management-system":
-        return <UserManagementSystem />;
       case "counter":
         return <Counter />;
       case "ratings":
