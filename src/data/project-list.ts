@@ -10,6 +10,28 @@ export interface Types {
 export const projectList: Types[] = [
   {
     id: uuidv4(),
+    title: "blog-admin-panel",
+    description:
+      "This project implements a simple Employee Management System where users can add, read, edit, and delete employee records. The application also utilizes local storage to persist employee data across sessions.  ",
+    tags: [
+      "React JS",
+      "Tailwind CSS",
+      "Formik",
+      "Redux toolkit query",
+      "SQL",
+      "Express.js",
+      "Node.js",
+    ],
+  },
+  {
+    id: uuidv4(),
+    title: "blog-shite",
+    description:
+      "This project implements a simple Employee Management System where users can add, read, edit, and delete employee records. The application also utilizes local storage to persist employee data across sessions.  ",
+    tags: ["React JS", "Tailwind CSS", "React Hooks", "Local Storage"],
+  },
+  {
+    id: uuidv4(),
     title: "employee-management-system",
     description:
       "This project implements a simple Employee Management System where users can add, read, edit, and delete employee records. The application also utilizes local storage to persist employee data across sessions.  ",
